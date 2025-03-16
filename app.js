@@ -30,7 +30,7 @@ function sortearAmigo(){
         numeroSecreto=Math.floor(Math.random()*totalamigos)+1;
         alert(numeroSecreto);
         alert(amigos[numeroSecreto]);
-        asignarTextoElemento('resultado',amigos[numeroSecreto]);
+        asignarTextoElemento('resultado',`Tu amig@: ${amigos[numeroSecreto]} fue el ganador del sorteo.`);
     }
 };
 
