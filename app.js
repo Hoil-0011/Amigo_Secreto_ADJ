@@ -2,6 +2,7 @@
 
 //Crear un array para almacenar los nombres
 let amigos = [];
+let numeroSecreto="";
 
 function agregarAmigo() {
 
@@ -15,6 +16,19 @@ function agregarAmigo() {
         console.log(amigos);
         nombres=document.getElementById('amigo').value = "";
     }
-   
-}
+};
 
+function sortearAmigo(){
+    if (amigos=="") {
+        alert("Arreglo vacio");
+    }
+    else{
+        //alert("Existe elementos");
+        let totalamigos=amigos.length-1;
+        //alert(totalamigos);
+        //alert(amigos);
+        numeroSecreto=Math.floor(Math.random()*totalamigos)+1;
+        alert(numeroSecreto);
+        alert(amigos[numeroSecreto]);
+    }
+};
