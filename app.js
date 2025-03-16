@@ -13,6 +13,7 @@ function agregarAmigo() {
     }else{
         amigos.push(nombres);   
         console.log(amigos);
+        nombres=document.getElementById('amigo').value = "";
     }
    
 }
