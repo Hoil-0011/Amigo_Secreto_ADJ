@@ -30,5 +30,14 @@ function sortearAmigo(){
         numeroSecreto=Math.floor(Math.random()*totalamigos)+1;
         alert(numeroSecreto);
         alert(amigos[numeroSecreto]);
+        asignarTextoElemento('resultado',amigos[numeroSecreto]);
     }
 };
+
+function asignarTextoElemento(elemento, texto) {
+    let elementoHTML = document.getElementById(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
+asignarTextoElemento('resultado','Por ahora no existe un sorteo');
