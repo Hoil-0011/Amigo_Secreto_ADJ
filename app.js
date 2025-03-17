@@ -52,7 +52,7 @@ function sortearAmigo(){
         //alert(totalamigos);
         //alert(amigos);
 
-        alert("numero secreto:"+numeroSecreto);
+        //alert("numero secreto:"+numeroSecreto);
         //alert(amigos[numeroSecreto]);
         asignarTextoElemento('resultado',`Tu amig@: ${amigos[numeroSecreto]} ganó el sorteo.`);
 
