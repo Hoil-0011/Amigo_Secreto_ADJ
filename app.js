@@ -3,19 +3,37 @@
 //Crear un array para almacenar los nombres
 let amigos = [];
 let numeroSecreto="";
+let totalamigos;
 
 function agregarAmigo() {
 
-    const nombres = document.getElementById('amigo').value.trim(); //defino como constante los nombres, porque en teoria no cambian.
-    //.trim() quita los espacios al inicio y final del texto.
+    let nombres = document.getElementById('amigo').value.trim(); //trim elimina los espacios---con esto se elimina los espacios que se puedan tener al ingresar las cadenas de texto
 
-    if (nombres =="" || nombres == " ") { //se evalua si esta ingresando un valor vacio o espacios.   
-        alert("Campo Vacio ingresar nombres");
+    if (nombres =="" || nombres ==" ") { //se evalua si esta ingresando un valor vacio o espacios.
+        //ahora que lo pienso, no es necesario evaluar los espacios, ya que en teoria el trim de la linea anterior, evita que exista.   
+        alert("Por favor, inserte un nombre.");
     }else{
         amigos.push(nombres);   
         console.log(amigos);
-        nombres=document.getElementById('amigo').value = "";
+        nombres=document.getElementById('amigo').value =""; //limpio el campo.
+
+        totalamigos=amigos.length-1;
+        listaDeAmigos();
+        alert("Después de llamar a listaDeAmigos()");
     }
+};
+
+function listaDeAmigos(){
+    alert(totalamigos);
+    let lista=document.getElementById("listaAmigos");
+    //let html = ""; // Variable acumuladora para evitar múltiples manipulaciones del DOM
+
+    for (let i = 0; i <= totalamigos; i++) {
+        //alert(amigos[i]);
+        html += `<li>${amigos[i]}</li>`;
+    }
+    alert("despues del for");
+    lista.innerHTML = html; // Actualizamos el DOM una sola vez al final
 };
 
 function sortearAmigo(){
@@ -24,13 +42,15 @@ function sortearAmigo(){
     }
     else{
         //alert("Existe elementos");
-        let totalamigos=amigos.length-1;
+        
         //alert(totalamigos);
         //alert(amigos);
         numeroSecreto=Math.floor(Math.random()*totalamigos)+1;
         alert(numeroSecreto);
         alert(amigos[numeroSecreto]);
         asignarTextoElemento('resultado',`Tu amig@: ${amigos[numeroSecreto]} fue el ganador del sorteo.`);
+
+       
     }
 };
 
@@ -38,6 +58,6 @@ function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.getElementById(elemento);
     elementoHTML.innerHTML = texto;
     return;
-}
+};
 
 asignarTextoElemento('resultado','Por ahora no existe un sorteo');
