@@ -14,41 +14,47 @@ function agregarAmigo() {
         alert("Por favor, inserte un nombre.");
     }else{
         amigos.push(nombres);   
-        console.log(amigos);
+        //console.log(amigos);
         nombres=document.getElementById('amigo').value =""; //limpio el campo.
 
         totalamigos=amigos.length-1;
         listaDeAmigos();
-        alert("Después de llamar a listaDeAmigos()");
+        
     }
 };
 
 function listaDeAmigos(){
-    alert(totalamigos);
+    //alert(totalamigos);
     let lista=document.getElementById("listaAmigos");
-    //let html = ""; // Variable acumuladora para evitar múltiples manipulaciones del DOM
+    let html =""; // Variable acumuladora para evitar múltiples manipulaciones del DOM
 
     for (let i = 0; i <= totalamigos; i++) {
         //alert(amigos[i]);
         html += `<li>${amigos[i]}</li>`;
     }
-    alert("despues del for");
     lista.innerHTML = html; // Actualizamos el DOM una sola vez al final
 };
 
 function sortearAmigo(){
     if (amigos=="") {
-        alert("Arreglo vacio");
+        alert("Por favor, inserte un nombre antes de sortear.");
     }
     else{
         //alert("Existe elementos");
-        
+        numeroSecreto=Math.floor(Math.random()*(totalamigos+1));
+        /* Math.random() * (totalamigos + 1)
+            Multiplica el número aleatorio por (totalamigos + 1), asegurando que el rango sea de 0 a totalamigos.
+            Sin +1, el valor máximo sería totalamigos - 1.
+
+            Math.floor(...)
+            Redondea el número hacia abajo para obtener un valor entero entre 0 y totalamigos.
+        */
         //alert(totalamigos);
         //alert(amigos);
-        numeroSecreto=Math.floor(Math.random()*totalamigos)+1;
-        alert(numeroSecreto);
-        alert(amigos[numeroSecreto]);
-        asignarTextoElemento('resultado',`Tu amig@: ${amigos[numeroSecreto]} fue el ganador del sorteo.`);
+
+        alert("numero secreto:"+numeroSecreto);
+        //alert(amigos[numeroSecreto]);
+        asignarTextoElemento('resultado',`Tu amig@: ${amigos[numeroSecreto]} ganó el sorteo.`);
 
        
     }
